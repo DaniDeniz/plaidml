@@ -62,6 +62,8 @@ void pipelineBuilder(OpPassManager &pm) {
   pm.addPass(createCanonicalizerPass());
   pm.addPass(createCSEPass());
 
+  pm.addPass(pxa::createReorderLayoutPass());
+
   // Do tiled fusion
   pm.addPass(pxa::createFusionPass(0 /*memoryActivityThreshold*/,
                                    false /*exactlyMatch*/,
