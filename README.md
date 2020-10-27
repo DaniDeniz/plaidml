@@ -49,6 +49,8 @@ The objective of this repository is to enable building PlaidML for ARM devices, 
 
 This was tested on a Nvidia Jetson Nano. If you encounter any error check the official plaidml documentation.    
 
+You can also download the corresponding wheel for arm64 from the [**0.6.2 arm64 release**](https://github.com/DaniDeniz/plaidml/releases/download/0.6.2_arm64/plaidml-0.6.2.dev0-py2.py3-none-linux_aarch64.whl)
+
 ## Getting started
 
 For most platforms, getting started with accelerated deep learning is as easy as
