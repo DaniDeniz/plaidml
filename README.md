@@ -5,7 +5,6 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/plaidml/plaidml/blob/master/LICENSE)  
 
-[![Build Status](https://travis-ci.org/plaidml/plaidml.svg?branch=master)](https://travis-ci.org/plaidml/plaidml)
 
 
 - [Documentation](https://vertexai-plaidml.readthedocs-hosted.com/)
@@ -35,6 +34,20 @@ achieving comparable performance.
 
 It works on all major operating systems: Linux, macOS, and Windows. 
 
+# Contribution of this Fork
+### Arm64 (aarch64) wheel building
+The objective of this repository is to enable building PlaidML for ARM devices, concretely arm64v8 (aarch64) devices. The PlaidML version used is **v0.6.2**.
+
+## Installation instructions
+1. Download bazelisk for a linux_x86_64 (**linux_amd64**) device from [here](https://github.com/bazelbuild/bazelisk/releases/). I used this [version](https://github.com/bazelbuild/bazelisk/releases/download/v1.7.3/bazelisk-linux-amd64) 
+2. Clone this repository `git clone https://github.com/DaniDeniz/plaidml.git; cd plaidml`
+3. Create a Python3 virtual environment with the requirements described in [environment.yml](environment.yml). Activate the virtualenv. 
+4. Inside the plaidml root, run the following command: `bazelisk build --config linux_arm_64v8 --verbose_failures //plaidml:wheel`. Note that we are running this on a linux_x86_64 device and we are crosscompiling the python wheel for the arm64 architecture.
+5. Once it builds sucessfully, locate the wheel at the following directory: `bazel-bin/plaidml/wheel.pkg/dist/`. Transfer it to the arm64 device.
+6. Install it on the arm64 device inside a python virtualenv `pip install -U plaidml-0.6.2*_aarch64.whl`
+7. Install plaidml-keras: `pip install -U plaidml-keras==0.6.2`
+
+This was tested on a Nvidia Jetson Nano. If you encounter any error check the official plaidml documentation.    
 
 ## Getting started
 
