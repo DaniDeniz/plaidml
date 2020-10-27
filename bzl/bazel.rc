@@ -13,7 +13,7 @@ run --genrule_strategy=standalone
 build --action_env=VIRTUAL_ENV
 build --action_env=PATH
 
-build --define=version=0.0.0.dev0
+build --define=version=0.6.2.dev0
 build --build_tag_filters=-msvc
 test --test_tag_filters=-msvc
 test --test_timeout_filters=-eternal
@@ -23,6 +23,7 @@ test --test_env=PLAIDML_DEVICE_IDS
 
 build:linux_x86_64 --cpu=linux_x86_64
 build:linux_x86_64 --host_cpu=linux_x86_64
+build:linux_x86_64 --compiler=gcc
 build:linux_x86_64 --crosstool_top=@toolchain//:toolchain
 build:linux_x86_64 --host_crosstool_top=@toolchain//:toolchain
 build:linux_x86_64 --build_tag_filters=-darwin,-metal,-msvc,-pytorch
@@ -37,6 +38,7 @@ test:linux_arm_32v7 --test_tag_filters=-darwin,-jupyter,-large,-llvm,-metal,-msv
 
 build:linux_arm_64v8 --cpu=linux_arm_64v8
 build:linux_arm_64v8 --host_cpu=linux_x86_64
+build:linux_arm_64v8 --compiler=gcc
 build:linux_arm_64v8 --crosstool_top=@toolchain//:toolchain
 build:linux_arm_64v8 --host_crosstool_top=@toolchain//:toolchain
 build:linux_arm_64v8 --build_tag_filters=-darwin,-jupyter,-large,-llvm,-metal,-msvc,-rtest_fail,-tensorflow,-arm7_fail

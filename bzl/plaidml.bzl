@@ -11,7 +11,6 @@ PLAIDML_COPTS = select({
     ],
     "//conditions:default": [
         "-std=c++14",
-        "-Werror",
     ],
 })
 

@@ -177,9 +177,9 @@ def configure_protobuf():
 
     http_archive(
         name = "six_archive",
-        url = "https://bitbucket.org/gutworth/six/get/1.10.0.zip",
-        sha256 = "016c8313d1fe8eefe706d5c3f88ddc51bd78271ceef0b75e0a9b400b6a8998a9",
-        strip_prefix = "gutworth-six-e5218c3f66a2",
+        url = "http://mirror.bazel.build/pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz",
+        sha256 = "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a",
+        strip_prefix = "six-1.10.0",
         build_file = Label("//bzl:six.BUILD"),
     )
 
